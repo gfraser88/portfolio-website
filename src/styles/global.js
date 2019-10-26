@@ -1,6 +1,9 @@
 import css from "@emotion/css";
 import colors from 'styles/colors';
 import dimensions from 'styles/dimensions';
+//color: ${colors.grey100};
+//background-color: ${colors.grey900};
+//color: ${colors.grey900};
 
 const globalStyles = css`
     html,
@@ -17,7 +20,8 @@ const globalStyles = css`
         margin: 0 auto;
         font-size: 16px;
         line-height: 1.5;
-        color: ${colors.grey900};
+        color: ${colors.grey100};
+        background-color: ${colors.grey900};
         -webkit-font-smoothing: antialiased;
 
         @media(max-width: ${dimensions.maxwidthMobile}px) {

@@ -28,11 +28,11 @@ const ProjectCardContainer = styled(Link)`
     }
 
     &:hover {
-        box-shadow: 0px 9px 24px rgba(0, 0, 0, 0.1);
+        box-shadow: 0px 9px 24px rgba(0, 0, 0, 0.4);
         transition: all 150ms ease-in-out;
 
         .ProjectCardAction {
-            color: ${colors.blue500};
+            color: ${colors.green500};
             transition: all 150ms ease-in-out;
 
             span {
@@ -53,9 +53,10 @@ const ProjectCardContainer = styled(Link)`
         }
     }
 `
-
-const ProjectCardContent = styled("div")`
-    background: white;
+//background: white;
+const ProjectCardContent = styled("div")`    
+    background: ${colors.grey800};
+    color: ${colors.grey100};
     padding: 4em 3em 2.25em 3em;
     position: relative;
 
@@ -83,12 +84,13 @@ const ProjectCardContent = styled("div")`
 
 const ProjectCardCategory = styled("h6")`
     font-weight: 600;
-    color: ${colors.grey600};
+    color: ${colors.green600};
 `
 
 const ProjectCardTitle = styled("h3")`
     margin-bottom: 0.5em;
     margin-top: 0.5em;
+    color: ${colors.green500};
 `
 
 const ProjectCardBlurb = styled("div")`
@@ -114,7 +116,7 @@ const ProjectCardAction = styled("div")`
         transition: transform 400ms ease-in-out;
     }
 `
-
+//background: ${colors.grey200};
 const ProjectCardImageContainer = styled("div")`
     background: ${colors.grey200};
     display: flex;
@@ -140,7 +142,7 @@ const ProjectCardImageContainer = styled("div")`
         height: 100%;
         left: 0;
         top: 0;
-        background: ${colors.blue500};
+        background: ${colors.green500};
         mix-blend-mode: multiply;
         opacity: 0;
         transition: all 150ms ease-in-out;
