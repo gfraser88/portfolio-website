@@ -121,11 +121,11 @@ const ProjectCardImageContainer = styled("div")`
     background: ${colors.grey200};
     display: flex;
     justify-content: center;
-    align-items: flex-end;
+    align-items: center;
     overflow: hidden;
     position: relative;
-    padding-left: 2em;
-    padding-right: 2em;
+    padding-left: 1em;
+    padding-right: 1em;
 
     @media(max-width:${dimensions.maxwidthTablet}px) {
         padding-top: 3em;
@@ -142,14 +142,14 @@ const ProjectCardImageContainer = styled("div")`
         height: 100%;
         left: 0;
         top: 0;
-        background: ${colors.green500};
+        background: ${colors.grey700};
         mix-blend-mode: multiply;
         opacity: 0;
         transition: all 150ms ease-in-out;
     }
 
     img {
-        max-width: 400px;
+        max-width: 700px;
         width: 100%;
         box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.04);
 

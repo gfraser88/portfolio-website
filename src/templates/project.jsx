@@ -8,18 +8,19 @@ import { RichText } from "prismic-reactjs";
 import Button from "components/_ui/Button";
 import Layout from "components/Layout";
 
+
 const ProjectHeroContainer = styled("div")`
     background: ${colors.grey200};
     display: flex;
     justify-content: center;
-    align-items: flex-end;
+    align-items: center;
     overflow: hidden;
     position: relative;
-    padding-top: 2.25em;
+    padding: 1em;
     margin-bottom: 3.5em;
 
     img {
-        max-width: 600px;
+        max-width: 800px;
     }
 `
 
@@ -28,11 +29,10 @@ const ProjectTitle = styled("div") `
     margin: 0 auto;
     text-align: center;
 `
-
+//max-width: 550px;
 const ProjectBody = styled("div")`
-    max-width: 550px;
+    max-width: 800px;
     margin: 0 auto;
-
     .block-img {
         margin-top: 3.5em;
         margin-bottom: 0.5em;
@@ -40,6 +40,10 @@ const ProjectBody = styled("div")`
         img {
             width: 100%;
         }
+    }
+    a {
+        text-decoration: none;
+        color:${colors.green500};
     }
 `
 
@@ -97,7 +101,7 @@ const Project = ({ project, meta }) => {
                 </ProjectTitle>
                 {project.project_hero_image && (
                     <ProjectHeroContainer>
-                        <img src={project.project_hero_image.url} alt="bees" />
+                        <img src={project.project_hero_image.url} alt="bees" class="img-zoomable" />
                     </ProjectHeroContainer>
                 )}
                 <ProjectBody>
