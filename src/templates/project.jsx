@@ -7,10 +7,10 @@ import { Link, graphql } from 'gatsby';
 import { RichText } from "prismic-reactjs";
 import Button from "components/_ui/Button";
 import Layout from "components/Layout";
-
+//import Img from 'gatsby-image';
 
 const ProjectHeroContainer = styled("div")`
-    background: ${colors.grey200};
+    background: ${colors.green200};
     display: flex;
     justify-content: center;
     align-items: center;
@@ -20,7 +20,7 @@ const ProjectHeroContainer = styled("div")`
     margin-bottom: 3.5em;
 
     img {
-        max-width: 800px;
+        max-width: 940px;
     }
 `
 
@@ -31,7 +31,7 @@ const ProjectTitle = styled("div") `
 `
 //max-width: 550px;
 const ProjectBody = styled("div")`
-    max-width: 800px;
+    max-width: 1000px;
     margin: 0 auto;
     .block-img {
         margin-top: 3.5em;
@@ -53,12 +53,21 @@ const WorkLink = styled(Link)`
     text-align: center;
 `
 
+const ProjectCategory = styled("div")`
+color:${colors.green500};
+font-size: 25px;
+max-width: 1000px;
+margin: 0 auto;
+text-align: center;
+`
+
 
 const Project = ({ project, meta }) => {
+
     return (
         <>
             <Helmet
-                title={`${project.project_title[0].text} | Prist, Gatsby & Prismic Starter`}
+                title={`${project.project_title[0].text}`}
                 titleTemplate={`%s | ${meta.title}`}
                 meta={[
                     {
@@ -67,7 +76,7 @@ const Project = ({ project, meta }) => {
                     },
                     {
                         property: `og:title`,
-                        content: `${project.project_title[0].text} | Prist, Gatsby & Prismic Starter`,
+                        content: `${project.project_title[0].text}`,
                     },
                     {
                         property: `og:description`,
@@ -99,11 +108,13 @@ const Project = ({ project, meta }) => {
                 <ProjectTitle>
                     {RichText.render(project.project_title)}
                 </ProjectTitle>
+                <ProjectCategory>{RichText.render(project.project_category)}</ProjectCategory>
                 {project.project_hero_image && (
                     <ProjectHeroContainer>
-                        <img src={project.project_hero_image.url} alt="bees" class="img-zoomable" />
+                         <img src={project.project_hero_image.url} alt="Picture of project" class="img-zoomable" />
                     </ProjectHeroContainer>
                 )}
+                
                 <ProjectBody>
                     {RichText.render(project.project_description)}
                     <WorkLink to={"/work"}>

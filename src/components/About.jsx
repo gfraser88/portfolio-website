@@ -59,7 +59,7 @@ const AboutLink = styled("a")`
 
 const AboutBio = styled("div")`
     padding-bottom: 3em;
-    max-width: 480px;
+    max-width: 750px;
 
 
     @media(max-width: ${dimensions.maxwidthMobile}px) {
@@ -97,9 +97,9 @@ const About = ({ bio, socialLinks }) => (
             {RichText.render(bio)}
         </AboutBio>
         <AboutActions>
-            <a href="mailto:marguerite.roth@gmail.com" target="_blank" rel="noopener noreferrer">
+            <a href="/src/pdf/GraemeFraser_Resume.pdf" download>
                 <Button className="Button--secondary">
-                    Email me
+                    Download Resume
                 </Button>
             </a>
         </AboutActions>

@@ -12,7 +12,7 @@ const colors = {
 
     green600: "#238742",
     green500: "#36cf65",
-    green200: "#E2F1DA",
+    green200: "#45ff7e",
     green100: "#F0F8ED",
 
     grey900: "#111010",
