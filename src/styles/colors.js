@@ -10,13 +10,15 @@ const colors = {
     blue200: "#e3efff",
     blue100: "#f1f8ff",
 
+
     green600: "#238742",
     green500: "#36cf65",
+    green300: "#a1d6b1",
     green200: "#45ff7e",
-    green100: "#F0F8ED",
+    green100: "#a1ffbe",
 
     grey900: "#111010",
-    grey800: "#3D3F42",
+    grey800: "#1a1a1c",
     grey700: "#7D7F81",
     grey600: "#A9AAAB",
     grey500: "#BEBFC0",

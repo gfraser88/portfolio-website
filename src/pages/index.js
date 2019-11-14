@@ -92,6 +92,41 @@ const WorkAction = styled(Link)`
         }
     }
 `
+const LinkButton = styled("a")`
+text-decoration: none;
+padding: 1em 2em;
+background: ${colors.green500};
+font-weight: 600;
+color: ${colors.grey900};
+outline: none;
+border: none;
+font-size: 1rem;
+border-radius: 2px;
+position: relative;
+transition: background 100ms ease-in-out;
+
+@media(max-width:${dimensions.maxwidthMobile}px) {
+    padding: 0.8em 1.8em;
+    font-size: 1em;
+}
+
+&:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: ${colors.green600};
+    z-index: -1;
+}
+
+&:hover {
+    cursor: pointer;
+    background: transparent;
+    transition: background 100ms ease-in-out;
+}
+`
 
 const RenderBody = ({ home, projects, meta }) => (
     <>
@@ -139,9 +174,10 @@ const RenderBody = ({ home, projects, meta }) => (
             </>
             <a href={home.hero_button_link.url}
                target="_blank" rel="noopener noreferrer">
-                <Button>
+                   <LinkButton href="#About">About Me</LinkButton>
+                {/* <Button>
                     {RichText.render(home.hero_button_text)}
-                </Button>
+                </Button> */}
             </a>
         </Hero>
         <Section>

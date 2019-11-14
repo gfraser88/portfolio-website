@@ -10,7 +10,7 @@ import Layout from "components/Layout";
 //import Img from 'gatsby-image';
 
 const ProjectHeroContainer = styled("div")`
-    background: ${colors.green200};
+    background: ${colors.green300};
     display: flex;
     justify-content: center;
     align-items: center;
