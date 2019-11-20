@@ -17,7 +17,7 @@ const HeaderContent = styled("div")`
 
 const HeaderLinks = styled("div")`
     display: grid;
-    grid-template-columns: repeat(2, auto);
+    grid-template-columns: repeat(1, auto);
     grid-gap: 7em;
     justify-content: flex-end;
     width: 100%;
@@ -36,7 +36,7 @@ const HeaderLinks = styled("div")`
         text-decoration: none;
         border-bottom: 3px solid transparent;
         font-weight: 600;
-        font-size: 0.95em;
+        font-size: 1.5em;
         height: 100%;
         padding-bottom: 1.25em;
         padding-top: 0.25em;
@@ -72,11 +72,51 @@ const HeaderLinks = styled("div")`
     }
 `
 
+const MainLogo = styled("div")`
+    color: ${colors.green500};
+    font-size: 1.5em;
+    border-bottom: 3px solid transparent;
+    font-weight: 600;
+    font-size: 1.5em;
+    height: 100%;
+    padding-bottom: 1.25em;
+    padding-top: 0.25em;
+    display: block;
+    position: relative;
+    &:after {
+        position: absolute;
+        content: "";
+        bottom: 0;
+        width: 18px;
+        height: 3px;
+        background: transparent;
+        bottom: -3px;
+        right: 50%;
+        margin-right: -9px;
+        transition: 100ms ease-in-out background;
+    }
+
+    &:hover {
+        &:after {
+            background: ${colors.green500};
+            transition: 100ms ease-in-out background;
+        }
+    }
+
+    &.Link--is-active {
+        &:after {
+            background: ${colors.green500};
+            transition: 100ms ease-in-out background;
+        }
+    }
+`
+
 const Header = () => (
     <HeaderContainer>
         <HeaderContent>
-            <Link to="/">
-                <Logo/>
+            <Link to="/" style={{textDecoration:'none'}}>
+                {/* <Logo/> */}
+                <MainLogo>Graeme</MainLogo>
                 {/* <h3>Graeme</h3> */}
             </Link>
             <HeaderLinks>
@@ -85,11 +125,7 @@ const Header = () => (
                     to="/work">
                     Work
                 </Link>
-                {/* <Link
-                    activeClassName="Link--is-active"
-                    to="/blog">
-                    Blog
-                </Link> */}
+                
             </HeaderLinks>
         </HeaderContent>
     </HeaderContainer>

@@ -5,6 +5,9 @@ import styled from "@emotion/styled";
 import dimensions from "styles/dimensions";
 import colors from "styles/colors";
 import PropTypes from "prop-types";
+import {FaJs, FaHtml5, FaCss3, FaJava, FaReact} from 'react-icons/fa';
+import {DiDart, DiDotnet, DiMsqlServer} from 'react-icons/di';
+
 
 const ProjectCardContainer = styled(Link)`
     display: grid;
@@ -84,7 +87,8 @@ const ProjectCardContent = styled("div")`
 
 const ProjectCardCategory = styled("h6")`
     font-weight: 600;
-    color: ${colors.green600};
+    color: ${colors.grey100};
+    display: inline;
 `
 
 const ProjectCardTitle = styled("h3")`
@@ -163,7 +167,19 @@ const ProjectCard = ({ category, title, description, thumbnail, uid}) => (
     <ProjectCardContainer to={`/work/${uid}`}>
         <ProjectCardContent className="ProjectCardContent">
             <ProjectCardCategory>
-                {category[0].text}
+                {
+                    category[0].text.split(",").map((items, i) => (
+                        items == "HTML" ? <FaHtml5 title="test" style={{fontSize: 30, marginRight: 5}}/> :
+                        items == "Javascript" ? <FaJs style={{fontSize: 30, marginRight: 5}}/> :
+                        items == "CSS" ? <FaCss3 style={{fontSize: 30, marginRight: 5}}/> :
+                        items == "React" ? <FaReact style={{fontSize: 30, marginRight: 5}}/> :
+                        items == ".NET" ? <DiDotnet style={{fontSize: 30, marginRight: 5}}/> :
+                        items == "Dart" ? <DiDart style={{fontSize: 30, marginRight: 5}}/> :
+                        items == "SQL" ? <DiMsqlServer style={{fontSize: 30, marginRight: 5}}/> :
+                        <span style={{fontSize: 22, marginRight: 7, verticalAlign: 'top'}}>{items}</span>
+                        
+                    ))
+                }
             </ProjectCardCategory>
             <ProjectCardTitle>
                 {title[0].text}

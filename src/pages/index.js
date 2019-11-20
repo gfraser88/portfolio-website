@@ -170,9 +170,10 @@ const RenderBody = ({ home, projects, meta }) => (
         />
         <Hero>
             <>
-                {RichText.render(home.hero_title)}
+            <h1>Hello, my name is <span style={{color: colors.green500}}>Graeme Fraser</span>. I am a <span style={{color: colors.green500}}>computer programmer analyst.</span></h1>
+                {/* {RichText.render(home.hero_title)} */}
             </>
-            <a href={home.hero_button_link.url}
+            <a href={home.hero_button_link.url} style={{textDecoration: 'none'}}
                target="_blank" rel="noopener noreferrer">
                    <LinkButton href="#About">About Me</LinkButton>
                 {/* <Button>
@@ -196,7 +197,7 @@ const RenderBody = ({ home, projects, meta }) => (
             </WorkAction>
         </Section>
         <Section id="About">
-            {RichText.render(home.about_title)}
+            <span style={{color: colors.green500}}>{RichText.render(home.about_title)}</span>
             <About
                 bio={home.about_bio}
                 socialLinks={home.about_links}
