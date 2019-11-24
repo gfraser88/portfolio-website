@@ -120,6 +120,11 @@ const ProjectCardAction = styled("div")`
         transition: transform 400ms ease-in-out;
     }
 `
+
+const ProjectCardCategoryDesc = styled("div")`
+    color=${colors.green500};
+`
+
 //background: ${colors.grey200};
 const ProjectCardImageContainer = styled("div")`
     background: ${colors.green300};
@@ -176,8 +181,7 @@ const ProjectCard = ({ category, title, description, thumbnail, uid}) => (
                         items == ".NET" ? <DiDotnet style={{fontSize: 30, marginRight: 5}}/> :
                         items == "Dart" ? <DiDart style={{fontSize: 30, marginRight: 5}}/> :
                         items == "SQL" ? <DiMsqlServer style={{fontSize: 30, marginRight: 5}}/> :
-                        <span style={{fontSize: 22, marginRight: 7, verticalAlign: 'top'}}>{items}</span>
-                        
+                        <span style={{fontSize: 22, marginRight: 7, verticalAlign: 'top'}}>{items}</span>                       
                     ))
                 }
             </ProjectCardCategory>
@@ -186,6 +190,9 @@ const ProjectCard = ({ category, title, description, thumbnail, uid}) => (
             </ProjectCardTitle>
             <ProjectCardBlurb>
                 {RichText.render(description)}
+                {category[0].text.split(",").map((items, i, arr) => (
+                    <small style={{color: colors.green500}}>{arr.length - 1 == i ? items : items + ", "}</small>
+                ))}  
             </ProjectCardBlurb>
             <ProjectCardAction className="ProjectCardAction">
                 Details <span>&#8594;</span>

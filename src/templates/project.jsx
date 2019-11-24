@@ -108,10 +108,12 @@ const Project = ({ project, meta }) => {
                 <ProjectTitle>
                     {RichText.render(project.project_title)}
                 </ProjectTitle>
-                <ProjectCategory>{RichText.render(project.project_category)}</ProjectCategory>
+                <ProjectCategory>{project.project_category[0].text.split(",").map((items, i, arr) => (
+                    <span>{arr.length - 1 == i ? items : items + ", "}</span>
+                ))}</ProjectCategory>
                 {project.project_hero_image && (
                     <ProjectHeroContainer>
-                         <img src={project.project_hero_image.url} alt="Picture of project" class="img-zoomable" />
+                         <img src={project.project_hero_image.url} alt="Picture of project" />
                     </ProjectHeroContainer>
                 )}
                 

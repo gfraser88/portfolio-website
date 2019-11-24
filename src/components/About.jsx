@@ -97,7 +97,7 @@ const About = ({ bio, socialLinks }) => (
             {RichText.render(bio)}
         </AboutBio>
         <AboutActions>
-            <a href="/src/pdf/GraemeFraser_Resume.pdf" download>
+            <a href="./src/pdf/GraemeFraser_Resume.pdf" download>
                 <Button className="Button--secondary">
                     Download Resume
                 </Button>
