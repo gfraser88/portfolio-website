@@ -12,7 +12,7 @@ import {FaTimes} from 'react-icons/fa'
 //import Img from 'gatsby-image';
 
 const ProjectHeroContainer = styled("div")`
-    background: ${colors.green300};
+    background: ${colors.grey900};
     display: flex;
     justify-content: center;
     align-items: center;
@@ -21,13 +21,33 @@ const ProjectHeroContainer = styled("div")`
     padding: 1em;
     margin-bottom: 3.5em;
 
-    img {
-        max-width: 940px;
-        opacity: 1;
+    .topSquare {
+        position: absolute;
+        background: ${colors.green300};
+        height: 200px;
+        width: 200px;
+        right: 0;
+        bottom: 0;
+        z-index: 0;
     }
 
-    img:hover {
-        opacity: 0.6;
+    .bottomSquare {
+        position: absolute;
+        background: ${colors.green300};
+        height: 200px;
+        width: 200px;
+        left: 0;
+        top: 0;
+        z-index: 0;
+
+    }
+
+    img {
+        width: 100%;
+        height: 100%;
+        max-width: 940px;
+        z-index: 0;
+        cursor: pointer;
     }
 `
 
@@ -45,7 +65,11 @@ const ProjectBody = styled("div")`
         margin-bottom: 0.5em;
 
         img {
-            width: 50%;
+            width: 100%;
+        }
+
+        img:active {
+            transform: scale(1.5, 1.5);
         }
     }
     a {
@@ -66,7 +90,16 @@ font-size: 25px;
 max-width: 1000px;
 margin: 0 auto;
 text-align: center;
+padding-bottom: 20px;
 `
+
+const customStyles = {
+    content : {
+        position: 'relative',
+      zIndex: 1000
+    }
+  };
+  
 
 const Project = ({ project, meta }) => {
 
@@ -144,8 +177,11 @@ const show = () => setIsShown(true);
                     <span>{arr.length - 1 == i ? items : items + ", "}</span>
                 ))}</ProjectCategory>
                 {project.project_hero_image && (
-                    <ProjectHeroContainer>
-                         <img src={project.project_hero_image.url} alt="Picture of project" id="myImg" onClick={show} />
+                    <ProjectHeroContainer>                       
+                         
+                         <div class="topSquare"></div>
+                        <div class="bottomSquare"></div>
+                        <img src={project.project_hero_image.url} alt="Picture of project" id="myImg" onClick={show} />
                     </ProjectHeroContainer>
                 )}
                 
@@ -157,10 +193,10 @@ const show = () => setIsShown(true);
                         </Button>
                     </WorkLink>
                 </ProjectBody>
-                <ReactModal isOpen={isShown} onRequestClose={hide} id="myModal" class="modal">
+                <ReactModal isOpen={isShown} onRequestClose={hide} id="imgModal" class="modal" style={{customStyles}}>
                 <div style={{textAlign: 'center'}}>
-                    <div style={{textAlign: "right"}}><FaTimes style={{color: colors.grey900}} onClick={hide}/></div>
-                    <img style={{maxWidth: '1750px', maxHeight: '750px'}} src={project.project_hero_image.url}/>
+                    <div style={{textAlign: "right"}}><FaTimes style={{color: colors.grey900, cursor: 'pointer'}} onClick={hide}/></div>
+                    <img style={{maxHeight: '750px', width: '100%', objectFit: 'contain'}} src={project.project_hero_image.url}/>
                 </div>
                 </ReactModal>
             </Layout>
