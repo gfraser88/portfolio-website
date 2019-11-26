@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from "prop-types";
 import Helmet from "react-helmet";
 import styled from "@emotion/styled";
@@ -7,6 +7,8 @@ import { Link, graphql } from 'gatsby';
 import { RichText } from "prismic-reactjs";
 import Button from "components/_ui/Button";
 import Layout from "components/Layout";
+import ReactModal from 'react-modal';
+import {FaTimes} from 'react-icons/fa'
 //import Img from 'gatsby-image';
 
 const ProjectHeroContainer = styled("div")`
@@ -21,6 +23,11 @@ const ProjectHeroContainer = styled("div")`
 
     img {
         max-width: 940px;
+        opacity: 1;
+    }
+
+    img:hover {
+        opacity: 0.6;
     }
 `
 
@@ -38,7 +45,7 @@ const ProjectBody = styled("div")`
         margin-bottom: 0.5em;
 
         img {
-            width: 100%;
+            width: 50%;
         }
     }
     a {
@@ -61,8 +68,33 @@ margin: 0 auto;
 text-align: center;
 `
 
-
 const Project = ({ project, meta }) => {
+
+const [isShown, setIsShown] = useState(false);
+
+const hide = () => setIsShown(false);
+const show = () => setIsShown(true);
+    // Get the modal
+// var modal = document.getElementById("myModal");
+
+// // Get the image and insert it inside the modal - use its "alt" text as a caption
+// var modalImg = document.getElementById("img01");
+// var captionText = document.getElementById("caption");
+// function imgClick() {
+//   modal.style.display = "block";
+//   modalImg.src = this.src;
+//   captionText.innerHTML = this.alt;
+// }
+
+// // Get the <span> element that closes the modal
+// var span = document.getElementsByClassName("close")[0];
+
+// // When the user clicks on <span> (x), close the modal
+// function spanClick() {
+//   modal.style.display = "none";
+// }
+
+
 
     return (
         <>
@@ -113,7 +145,7 @@ const Project = ({ project, meta }) => {
                 ))}</ProjectCategory>
                 {project.project_hero_image && (
                     <ProjectHeroContainer>
-                         <img src={project.project_hero_image.url} alt="Picture of project" />
+                         <img src={project.project_hero_image.url} alt="Picture of project" id="myImg" onClick={show} />
                     </ProjectHeroContainer>
                 )}
                 
@@ -125,6 +157,12 @@ const Project = ({ project, meta }) => {
                         </Button>
                     </WorkLink>
                 </ProjectBody>
+                <ReactModal isOpen={isShown} onRequestClose={hide} id="myModal" class="modal">
+                <div style={{textAlign: 'center'}}>
+                    <div style={{textAlign: "right"}}><FaTimes style={{color: colors.grey900}} onClick={hide}/></div>
+                    <img style={{maxWidth: '1750px', maxHeight: '750px'}} src={project.project_hero_image.url}/>
+                </div>
+                </ReactModal>
             </Layout>
         </>
     )
