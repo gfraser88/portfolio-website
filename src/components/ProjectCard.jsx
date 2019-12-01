@@ -173,15 +173,20 @@ const ProjectCard = ({ category, title, description, thumbnail, uid}) => (
         <ProjectCardContent className="ProjectCardContent">
             <ProjectCardCategory>
                 {
+                    // category[0].text.split(",").map((items, i) => (
+                    //     items == "HTML" ? <FaHtml5 title="test" style={{fontSize: 30, marginRight: 5}}/> :
+                    //     items == "Javascript" ? <FaJs style={{fontSize: 30, marginRight: 5}}/> :
+                    //     items == "CSS" ? <FaCss3 style={{fontSize: 30, marginRight: 5}}/> :
+                    //     items == "React" ? <FaReact style={{fontSize: 30, marginRight: 5}}/> :
+                    //     items == ".NET" ? <DiDotnet style={{fontSize: 30, marginRight: 5}}/> :
+                    //     items == "Dart" ? <DiDart style={{fontSize: 30, marginRight: 5}}/> :
+                    //     items == "SQL" ? <DiMsqlServer style={{fontSize: 30, marginRight: 5}}/> :
+                    //     <span style={{fontSize: 22, marginRight: 7, verticalAlign: 'top'}}>{items}</span>                       
+                    // ))
                     category[0].text.split(",").map((items, i) => (
-                        items == "HTML" ? <FaHtml5 title="test" style={{fontSize: 30, marginRight: 5}}/> :
                         items == "Javascript" ? <FaJs style={{fontSize: 30, marginRight: 5}}/> :
-                        items == "CSS" ? <FaCss3 style={{fontSize: 30, marginRight: 5}}/> :
                         items == "React" ? <FaReact style={{fontSize: 30, marginRight: 5}}/> :
-                        items == ".NET" ? <DiDotnet style={{fontSize: 30, marginRight: 5}}/> :
-                        items == "Dart" ? <DiDart style={{fontSize: 30, marginRight: 5}}/> :
-                        items == "SQL" ? <DiMsqlServer style={{fontSize: 30, marginRight: 5}}/> :
-                        <span style={{fontSize: 22, marginRight: 7, verticalAlign: 'top'}}>{items}</span>                       
+                        items == ".NET" ? <DiDotnet style={{fontSize: 30, marginRight: 5}}/> : ""                       
                     ))
                 }
             </ProjectCardCategory>

@@ -17,25 +17,15 @@ const FooterContainer = styled("div")`
     }
 `
 
-const FooterAuthor = styled("a")`
+const FooterAuthor = styled("div")`
     font-size: 0.75em;
     color: ${colors.grey700};
     display: flex;
     flex-direction: column;
+    text-align: center;
     align-items: center;
     text-decoration: none;
     margin-top: 1.5em;
-
-     &:hover {
-         color: ${colors.blue900};
-
-        .FooterSpooch {
-            animation-name: rotate;
-            animation-duration: 1.5s;
-            animation-iteration-count: infinite;
-            animation-timing-function: linear;
-        }
-    }
 
     @keyframes rotate {
         from {transform: rotate(0deg);}
@@ -53,8 +43,9 @@ const Footer = () => (
         <Link to="/">
             <Logo />
         </Link>
-        <FooterAuthor href="https://marguerite.io">
-            © 2019 — Graeme Fraser
+        <FooterAuthor>
+            © 2019 — Graeme Fraser <br/>
+            graeme.r.fraser@outlook.com
             {/* <FooterSpooch className="FooterSpooch" src={spooch} /> */}
         </FooterAuthor>
     </FooterContainer>
