@@ -182,7 +182,8 @@ const RenderBody = ({ home, projects, meta }) => (
             </a>
         </Hero>
         <Section>
-            {projects.map((project, i) => (
+        <span style={{color: colors.green500}}><h2>Work</h2></span>
+            {/* {projects.map((project, i) => (
                 <ProjectCard
                     key={i}
                     category={project.node.project_category}
@@ -191,7 +192,21 @@ const RenderBody = ({ home, projects, meta }) => (
                     thumbnail={project.node.project_preview_thumbnail}
                     uid={project.node._meta.uid}
                 />
-            ))}
+            ))} */}
+                <ProjectCard
+                    category={projects[0].node.project_category}
+                    title={projects[0].node.project_title}
+                    description={projects[0].node.project_preview_description}
+                    thumbnail={projects[0].node.project_preview_thumbnail}
+                    uid={projects[0].node._meta.uid}
+                />
+                <ProjectCard
+                    category={projects[1].node.project_category}
+                    title={projects[1].node.project_title}
+                    description={projects[1].node.project_preview_description}
+                    thumbnail={projects[1].node.project_preview_thumbnail}
+                    uid={projects[1].node._meta.uid}
+                />
             <WorkAction to={"/work"}>
                 See more work <span>&#8594;</span>
             </WorkAction>
